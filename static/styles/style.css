@@ -1,0 +1,35 @@
+body{
+  background-color: rgb(170, 195, 248);
+  margin: 0;
+  padding: 0;
+}
+
+
+.form-select, .input-group{
+  width: 300px;
+  height: 45px;
+}
+@media screen and (max-width: 992px) {
+  .form-select, .input-group {
+      width: 150px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .form-select, .input-group {
+      width: 100%;
+  }
+}
+
+.result {
+  font-size: 25px;
+  font-weight: 450;
+}
+
+.block_convert {
+  border: 5px rgb(255, 255, 255) solid;
+  border-radius: 20px;
+}
+
+.data-block {
+  /* background-color: rgb(255, 255, 255); */
+}

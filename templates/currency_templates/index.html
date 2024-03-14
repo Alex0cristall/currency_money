@@ -1,0 +1,80 @@
+{% extends "currency_templates/base.html" %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "styles/style.css" %}">
+
+
+
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="container block_convert my-5">
+
+    <div class="row justify-content-center align-items-center g-2 mt-3 data-block">
+      <div class="col-12 text-center"><h1>Конвертер валют</h1></div>
+      <div class="col-12 d-flex justify-content-around my-5">
+
+
+        
+        <div class="w">
+            <label>Сумма*</label>
+            <div class="input-group mb-3">
+              
+              <input name='count_many' type="number" class="form-control">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+
+          <div class="w">
+            <label>Отдаём*</label>
+            <select name="give" class="form-select" aria-label="Default select example">
+              <option selected>{% if give %}{{give}}{% endif %}</option>
+              {% if req %}
+                {% for valut in req %}
+                  <option>{{valut}}</option>
+                {% endfor %}
+              {% endif %}
+            </select>
+          </div>
+
+          <div class="w">
+            <label>Получаем*</label>
+            <select name="accept" class="form-select" aria-label="Default select example">          
+              <option selected>{% if accept %}{{accept}}{% endif %}</option>
+              {% if req %}
+              {% for valut in req %}
+                <option>{{valut}}</option>
+              {% endfor %}
+            {% endif %}
+            </select>
+          </div>
+        </div>
+          
+      </div>
+
+      {% if item %}
+        <div class="col-12 text-center mb-5"><h3>Отдаём Получаем</h3></div>
+
+        <div class="col-12 text-center my-5 result">{{item}} {{accept}}</div>
+      {% endif %}
+  
+
+      <div class="col-12 text-center">
+        <button class="btn btn-primary mb-5" type="submit">Расчитать</button>
+      </div>
+    </div>
+</form>
+
+</div>
+
+
+
+
+
+
+
+{% endblock content %}
+
+
